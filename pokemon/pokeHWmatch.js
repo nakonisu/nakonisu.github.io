@@ -7,13 +7,13 @@ function SerchPokemon() {
 
     let answer = Serch(inHeight / 100, inWeight);
     document.getElementById("pokeName0").innerHTML = pokedata[answer[0] - 1].name;
-    document.getElementById("pokeHeight0").innerHTML = pokedata[answer[0] - 1].height * 100 + "(cm)";
+    document.getElementById("pokeHeight0").innerHTML = Number.parseInt(pokedata[answer[0] - 1].height * 100 + "(cm)");
     document.getElementById("pokeWeight0").innerHTML = pokedata[answer[0] - 1].weight + "(kg)";
     document.getElementById("pokeName1").innerHTML = pokedata[answer[1] - 1].name;
-    document.getElementById("pokeHeight1").innerHTML = pokedata[answer[1] - 1].height * 100 + "(cm)";
+    document.getElementById("pokeHeight1").innerHTML = Number.parseInt(pokedata[answer[1] - 1].height * 100 + "(cm)");
     document.getElementById("pokeWeight1").innerHTML = pokedata[answer[1] - 1].weight + "(kg)";
     document.getElementById("pokeName2").innerHTML = pokedata[answer[2] - 1].name;
-    document.getElementById("pokeHeight2").innerHTML = pokedata[answer[2] - 1].height * 100 + "(cm)";
+    document.getElementById("pokeHeight2").innerHTML = Number.parseInt(pokedata[answer[2] - 1].height * 100 + "(cm)");
     document.getElementById("pokeWeight2").innerHTML = pokedata[answer[2] - 1].weight + "(kg)";
 
     // console.log(pokedata[answer[0] - 1].name);
