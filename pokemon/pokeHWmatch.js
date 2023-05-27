@@ -1,11 +1,11 @@
 
 function SerchPokemon() {
-    var inHeight = Number.parseFloat(document.getElementById("inputHeight").value);
-    var inWeight = Number.parseFloat(document.getElementById("inputWeight").value);
+    var inHeight = Number.parseInt(document.getElementById("inputHeight").value);
+    var inWeight = Number.parseInt(document.getElementById("inputWeight").value);
     if (isNaN(inHeight)) { alert("高さは数値で入力してください"); return; }
     if (isNaN(inWeight)) { alert("重さは数値で入力してください"); return; }
 
-    let answer = Serch(inHeight / 100, inWeight);
+    let answer = Serch(inHeight, inWeight);
     document.getElementById("pokeName0").innerHTML = pokedata[answer[0] - 1].name;
     document.getElementById("pokeHeight0").innerHTML = Number.parseInt(pokedata[answer[0] - 1].height * 100 + "(cm)");
     document.getElementById("pokeWeight0").innerHTML = pokedata[answer[0] - 1].weight + "(kg)";
@@ -15,15 +15,13 @@ function SerchPokemon() {
     document.getElementById("pokeName2").innerHTML = pokedata[answer[2] - 1].name;
     document.getElementById("pokeHeight2").innerHTML = Number.parseInt(pokedata[answer[2] - 1].height * 100 + "(cm)");
     document.getElementById("pokeWeight2").innerHTML = pokedata[answer[2] - 1].weight + "(kg)";
-
-    // console.log(pokedata[answer[0] - 1].name);
 }
 function Serch(h, w) {
     let len = pokedata.length;
     answer = [0, 0, 0];
     min = [10000000, 10000000, 10000000];
-    for (let i = 0; i < len; i++) {
-        height = pokedata[i].height;
+    for (let i = 1; i < len; i++) {
+        height = pokedata[i].height * 100;
         weight = pokedata[i].weight;
         id = pokedata[i].id;
         if (Math.abs(h - height) < min[0]) {
@@ -31,7 +29,7 @@ function Serch(h, w) {
             answer[0] = id;
         }
         if (Math.abs(w - weight) < min[1]) {
-            min[1] = Math.abs(h - height);
+            min[1] = Math.abs(w - weight);
             answer[1] = id;
         }
         if (Math.abs(h - height) + Math.abs(w - weight) < min[2]) {
